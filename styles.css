@@ -1,7 +1,43 @@
+body {
+  background-image: url('qqq.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 header {
-    background-color: #333;
+    background-color: #4682B4;
     color: #fff;
     padding: 20px;
+    border: 2px solid #000000;
+}
+
+
+.courses {
+  background-color: #87CEFA;
+}
+
+#courses {
+  background-color: #87CEFA;
+  border: 2px solid #000000;
+}
+
+.about {
+  background-color: #87CEFA;
+}
+
+#about {
+  background-color: #87CEFA;
+  border: 2px solid #000000;
+}
+
+.goals {
+  background-color: #FFA500;
+}
+
+#goals{
+  background-color: #FFA500;
+  border: 2px solid #000000;
 }
 
 nav ul {
@@ -22,6 +58,7 @@ section {
     margin: 20px;
     padding: 20px;
     border: 1px solid #ddd;
+    border: 2px solid #000000;
 }
 
 form {
