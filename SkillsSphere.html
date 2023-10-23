@@ -86,6 +86,47 @@
         </ol>
     </section>
 
+        <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'Initial')">Initial</button>
+            <button class="tablinks" onclick="openCity(event, 'Secondary')">Secondary</button>
+            <button class="tablinks" onclick="openCity(event, 'Higher')">Higher</button>
+        </div>
+
+    <!-- Tab content -->
+    <div id="Initial" class="tabcontent">
+        <p>3-9 years</p>
+    </div>
+
+    <div id="Secondary" class="tabcontent">
+        <p>10-23 years</p>
+    </div>
+
+    <div id="Higher" class="tabcontent">
+        <p>25+ years</p>
+    </div>
+<script>
+    function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+    }
+
+</script>
     <section id="bootstrap-cards" class="mt-4">
         <h2 class="display-5"> WHY SHOULD YOU TRUST US?</h2>
         <div class="row">
