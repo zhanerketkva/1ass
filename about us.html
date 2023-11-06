@@ -20,6 +20,9 @@
         <li class="nav-item"><a class="nav-link" href="goals.html">Courses</a></li>
         <li class="nav-item"><a class="nav-link" href="about us.html">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="about us.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="help.html">Help</a></li>
+        <li class="nav__item"><button id="play" class="play-o"></button>
+          <div id="player"></div> </li>
       </ul>
     </div>
   </div>
@@ -128,6 +131,48 @@
 
 </div>
 
+<div class="game-container">
+  <h2>Let's Take a Break</h2>
+  <p>Drag the equation into their correct solution:</p>
+
+  <div class="draggable" id="56+45" draggable="true" ondragstart="drag(event)">56+45</div>
+  <div class="draggable" id="465:5" draggable="true" ondragstart="drag(event)">465:5</div>
+  <div class="draggable" id="32*6" draggable="true" ondragstart="drag(event)">32*6</div>
+
+  <div class="category" id="101" ondrop="drop(event)" ondragover="allowDrop(event)">101</div>
+  <div class="category" id="93" ondrop="drop(event)" ondragover="allowDrop(event)">93</div>
+  <div class="category" id="192" ondrop="drop(event)" ondragover="allowDrop(event)">192</div>
+
+  <p id="game-message"></p>
+
+</div>
+
+
+<script>
+function drag(event) {
+  event.dataTransfer.setData("text", event.target.id);
+}
+
+function allowDrop(event) {
+  event.preventDefault();
+}
+
+function drop(event) {
+  event.preventDefault();
+  var data = event.dataTransfer.getData("text");
+  event.target.appendChild(document.getElementById(data));
+
+  var categories = document.querySelectorAll('.category');
+  var correctCategory = event.target.id;
+  var currentCategory = data;
+
+  if (eval(currentCategory) === eval(correctCategory)) {
+    document.getElementById("game-message").textContent = "Correct!";
+  } else {
+    document.getElementById("game-message").textContent = "Try again.";
+  }
+}
+</script>
 
 <div class="container-fluid text-center mt-4">
   <p><a href="https://instagram.com/zhanerketkva?igshid=NTc4MTIwNjQ2YQ==" class="btn btn-secondary"><strong>Instagram</strong></a></p>
@@ -135,11 +180,38 @@
   <p><a href="https://web.whatsapp.com/" class="btn btn-secondary"><strong>WhatsApp</strong></a></p>
 </div>
 
+
 <div class="container-fluid text-center mt-4">
   <img src="instagrami2.jpg" alt="Instagram Icon">
   <img src="telegram2.png" alt="Telegram Icon">
   <img src="WhatsApp2.png" alt="WhatsApp Icon">
 </div>
+
+<script>
+var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+
+function onYouTubeIframeAPIReady() {
+   player = new YT.Player('player', {
+   height: '0',
+   width: '0',
+   videoId: 'dBdIXpJrTic',
+   events: {
+   'onReady': onPlayerReady
+}
+});
+}
+
+function onPlayerReady(event) {
+   document.getElementById('play').addEventListener('click', function () {
+   player.playVideo();
+});
+  }
+</script>
 
 <footer class="text-center mt-4">
   <p>&copy; 2023 SkillsSphere</p>

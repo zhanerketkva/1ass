@@ -22,6 +22,9 @@
                 <li class="nav-item"><a class="nav-link" href="goals.html">Courses</a></li>
                 <li class="nav-item"><a class="nav-link" href="about us.html">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="about us.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="help.html">Help</a></li>
+                <li class="nav__item"><button id="play" class="play-o"></button>
+                    <div id="player"></div> </li>
             </ul>
         </div>
     </div>
@@ -40,8 +43,10 @@
             <p class="text-primary">We are excited to have you here. Explore our content and services to learn and grow.</p>
             <hr>
         </div>
-        <div>
-            <img src="ss2.png" alt="Education Centre Image" class="img-fluid">
+        <div class="dropdown">
+            <img src="ss2.png" alt="skill" width="200" height="150">
+            <div class="dropdown-content">
+                <img src="ssss.jpg" alt="skill" width="400" height="200">
         </div>
     </section>
     <div id="demo" class="carousel slide" data-bs-ride="carousel">
@@ -92,7 +97,6 @@
             <button class="tablinks" onclick="openCity(event, 'Higher')">Higher</button>
         </div>
 
-    <!-- Tab content -->
     <div id="Initial" class="tabcontent">
         <p>3-9 years</p>
     </div>
@@ -106,22 +110,19 @@
     </div>
 <script>
     function openCity(evt, cityName) {
-    // Declare all variables
+
     var i, tabcontent, tablinks;
 
-    // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
     }
 
-    // Get all elements with class="tablinks" and remove the class "active"
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
-    // Show the current tab, and add an "active" class to the button that opened the tab
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
     }
@@ -173,6 +174,32 @@
             <li class="list-group-item">91% of those who come to us enter NIS, KTL, RFMS</li>
         </ul>
     </section>
+
+    <script>
+var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+
+function onYouTubeIframeAPIReady() {
+   player = new YT.Player('player', {
+   height: '0',
+   width: '0',
+   videoId: 'dBdIXpJrTic',
+   events: {
+   'onReady': onPlayerReady
+}
+});
+}
+
+function onPlayerReady(event) {
+   document.getElementById('play').addEventListener('click', function () {
+   player.playVideo();
+});
+  }
+</script>
 
     <footer class="text-center mt-4">
         <p>&copy; 2023 SkillsSphere</p>
