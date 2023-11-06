@@ -144,7 +144,25 @@
   <div class="category" id="192" ondrop="drop(event)" ondragover="allowDrop(event)">192</div>
 
   <p id="game-message"></p>
+  <button id="click-button">Done</button>
+  <script>
+    // Get the button element and the message element
+const clickButton = document.getElementById('click-button');
+const message = document.getElementById('message');
 
+// Define a click event listener
+clickButton.addEventListener('click', () => {
+  // Change the button text and update the message
+  if (clickButton.textContent === 'Done') {
+    clickButton.textContent = 'Well Done!';
+    message.textContent = 'You clicked the button!';
+  } else {
+    clickButton.textContent = 'Try Again!';
+    message.textContent = 'Click the button to see the magic!';
+  }
+});
+
+  </script>
 </div>
 
 

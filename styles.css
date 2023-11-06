@@ -251,6 +251,52 @@ border: 2px dashed #3498db;
   left: 7px;
 }
 
+.game-container {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.draggable {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.category {
+  background-color: #2196F3;
+  color: #fff;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#click-button {
+  background-color: #FF5722;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#click-button:hover {
+  background-color: #FF7043;
+}
+
+#game-message {
+  font-size: 18px;
+  margin-top: 10px;
+  color: #333;
+}
+
+
 
 
 
