@@ -353,7 +353,7 @@ border: 2px dashed #3498db;
       border-radius: 10px;
       background-color: #fafaf7;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      margin: auto; /* Добавлено для центрирования */
+      margin: auto;
     }
 
     .question {
@@ -365,7 +365,7 @@ border: 2px dashed #3498db;
       margin-bottom: 10px;
     }
     .question p {
-      font-weight: bold; /* Make the questions bold */
+      font-weight: bold;
     }
 
     #result {
@@ -384,10 +384,13 @@ border: 2px dashed #3498db;
         #chartContainer {
           max-width: 600px;
           margin: 20px auto;
-          border: 2px solid black; /* Add a border to the chart container */
-          border-radius: 5px; /* Optional: Add rounded corners */
+          border: 2px solid black;
+          border-radius: 5px;
         }
-
+    #myVideo {
+      border: 3px solid black;
+      box-sizing: border-box;
+    }
 
 
 
