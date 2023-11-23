@@ -36,8 +36,9 @@
     </div>
   </div>
 </nav>
-<h1>Monitoring of Studens</h1>
+
 <div id="chartContainer">
+  <h1>Monitoring of Students</h1>
   <canvas id="myChart"></canvas>
 </div>
 <script>
@@ -61,5 +62,125 @@ var myChart = new Chart(ctx, {
   }
 });
   </script>
+
+
+<div id="quiz">
+  <h1>Quiz</h1>
+  <div class="question">
+    <p>Question 1: What about the project?</p>
+    <div class="options">
+      <label><input type="radio" name="q1" value="Educational Centre"> Educational Centre</label><br>
+      <label><input type="radio" name="q1" value="Shop"> Online Shopping</label><br>
+      <label><input type="radio" name="q1" value="Coffee Products"> Coffee Products</label><br>
+    </div>
+  </div>
+  <div class="question">
+    <p>Question 2: What percentage of students entered to NIS, KTL, RFMS?</p>
+    <div class="options">
+      <label><input type="radio" name="q2" value="89%"> 89%</label><br>
+      <label><input type="radio" name="q2" value="94%"> 94%</label><br>
+      <label><input type="radio" name="q2" value="91%"> 91%</label><br>
+    </div>
+  </div>
+  <div class="question">
+    <p>Question 3: Which section of courses does biology include??</p>
+    <div class="options">
+      <label><input type="radio" name="q3" value="Humanitarian Sciences"> Humanitarian Sciences</label><br>
+      <label><input type="radio" name="q3" value="Natural Sciences"> Natural Sciences</label><br>
+      <label><input type="radio" name="q3" value="Technical Science"> Technical Science </label><br>
+    </div>
+  </div>
+  <div class="question">
+    <p>Question 4: Our slogan?</p>
+    <div class="options">
+      <label><input type="radio" name="q4" value="Learn And Grow"> Learn And Grow</label><br>
+      <label><input type="radio" name="q4" value="Explore. Learn. Excel"> Explore. Learn. Excel</label><br>
+      <label><input type="radio" name="q4" value="Learn Today, Lead Tomorrow"> Learn Today, Lead Tomorrow</label><br>
+    </div>
+  </div>
+  <div class="question">
+    <p>Question 5: Do we have discounts for beginners?</p>
+    <div class="options">
+      <label><input type="radio" name="q5" value="No"> No</label><br>
+      <label><input type="radio" name="q5" value="Yes"> Yes</label><br>
+      <label><input type="radio" name="q5" value="Don't know"> Don't know</label><br>
+    </div>
+  </div>
+  <button onclick="calculateScore()">Submit</button>
+  <p id="result"></p>
+</div>
+
+<script>
+    function calculateScore() {
+      let score = 0;
+
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      if (q1 && q1.value === "Educational Centre") {
+        score++;
+      }
+
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      if (q2 && q2.value === "91%") {
+        score++;
+      }
+
+      const q3 = document.querySelector('input[name="q3"]:checked');
+      if (q3 && q3.value === "Natural Sciences") {
+        score++;
+      }
+
+      const q4 = document.querySelector('input[name="q4"]:checked');
+      if (q4 && q4.value === "Learn And Grow") {
+        score++;
+      }
+
+      const q5 = document.querySelector('input[name="q5"]:checked');
+      if (q5 && q5.value === "Yes") {
+        score++;
+      }
+
+      const result = document.getElementById("result");
+      result.textContent = `Your score is: ${score}/5`;
+    }
+  </script>
+
+<button id="openModalBtn">FAQ</button>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3>What is the class size?</h3>
+        <p> Our class sizes are designed to foster an interactive learning environment. Typically, classes range from 15 to 25 students, ensuring personalized attention and active participation.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How is progress assessed during the courses</h3>
+        <p>Progress is assessed through a combination of assignments, exams, and practical projects. Our instructors provide timely feedback, and we encourage a holistic approach to evaluation, focusing on both academic understanding and practical application of the material.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I audit a class or attend a trial session before enrolling?</h3>
+        <p>Yes, we offer opportunities for prospective students to audit a class or attend a trial session. It allows you to experience our teaching style, interact with instructors, and get a feel for the course content before making a commitment. Contact our admissions department to schedule a trial session.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+const modal = document.getElementById('modal');
+const openModalBtn = document.getElementById('openModalBtn');
+const closeBtn = document.getElementsByClassName('close')[0];
+
+function openModal() {
+  modal.style.display = 'block';
+}
+
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+openModalBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+
+</script>
 </body>
 </html>

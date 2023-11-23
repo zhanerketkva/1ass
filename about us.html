@@ -36,52 +36,63 @@
 
 <section id="contact" class="mt-4">
   <h2 class="display-5">Contact Us</h2>
-  <form>
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name" name="name" required>
+  <form id="contactForm">
+    <div id="step1">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" required>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="nextStep('step1', 'step2')">Next</button>
     </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" name="email" required>
+
+    <div id="step2" style="display: none;">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="validateEmail()">Next</button>
     </div>
-    <div class="form-group">
-      <label for="message">Message:</label>
-      <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+
+    <div id="step3" style="display: none;">
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+
+  <script>
+    function nextStep(currentStep, nextStep) {
+      var inputs = document.getElementById(currentStep).querySelectorAll('input, textarea');
+
+
+      for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].value.trim() === '') {
+          alert('Please fill in all fields');
+          return;
+        }
+      }
+
+
+      document.getElementById(currentStep).style.display = 'none';
+      document.getElementById(nextStep).style.display = 'block';
+    }
+
+    function validateEmail() {
+      var email = document.getElementById('email').value;
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address');
+        return;
+      }
+
+
+      nextStep('step2', 'step3');
+    }
+  </script>
 </section>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const contactForm = document.getElementById("contactForm");
-
-    contactForm.addEventListener("submit", function (event) {
-        const nameInput = document.getElementById("name");
-        const emailInput = document.getElementById("email");
-        const messageInput = document.getElementById("message");
-
-        if (nameInput.value.trim() === "") {
-            alert("Name is required");
-            event.preventDefault(); // Prevent form submission
-            return;
-        }
-
-        const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-        if (!emailPattern.test(emailInput.value)) {
-            alert("Invalid email address");
-            event.preventDefault(); // Prevent form submission
-            return;
-        }
-
-        if (messageInput.value.trim() === "") {
-            alert("Message is required");
-            event.preventDefault(); // Prevent form submission
-        }
-    });
-});
-
-</script>
 
 <section id="countdown-timer" class="mt-4">
   <h2 class="display-5">Let's Check </h2>
@@ -147,13 +158,13 @@
   <p id="game-message"></p>
   <button id="click-button">Done</button>
   <script>
-    // Get the button element and the message element
+
 const clickButton = document.getElementById('click-button');
 const message = document.getElementById('message');
 
-// Define a click event listener
+
 clickButton.addEventListener('click', () => {
-  // Change the button text and update the message
+
   if (clickButton.textContent === 'Done') {
     clickButton.textContent = 'Well Done!';
     message.textContent = 'You clicked the button!';

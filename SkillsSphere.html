@@ -11,6 +11,7 @@
     <title>SkillsSphere</title>
 </head>
 <body>
+<button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">&#9650; Top</button>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand" href="#"><img src="ww.png" alt="edu">SkillsSphere</a>
@@ -201,6 +202,29 @@ function onPlayerReady(event) {
 });
   }
 </script>
+
+    <script>
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+window.onscroll = function () {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollToTopBtn.style.display = "block";
+    } else {
+        scrollToTopBtn.style.display = "none";
+    }
+}
+
+function scrollToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+   </script>
+
 
     <footer class="text-center mt-4">
         <p>&copy; 2023 SkillsSphere</p>
